@@ -1,1 +1,9 @@
-<p>template-driven-form works!</p>
+<h1> Template Driven Form Example </h1><br>
+<form #employeeForm="ngForm" (submit)="onSubmit(employeeForm)">
+  <label>Employee Name:<input name='empName' [(ngModel)]="empName">
+  </label><br>
+  <label>Employee Last Name:<input name='empLastName' [(ngModel)]="empLastName">
+  </label><br>
+  <label>Age :<input name='empAge' [(ngModel)]="empAge"></label><br>
+  <button type="submit">Submit</button>
+</form>
