@@ -1,5 +1,5 @@
 <h1> Dynamic-Reactive Form Example </h1><br>
-<form [formGroup]="person" (submit)="submitPersonForm()">
+<form [formGroup]="person" (submit)="_submitPersonForm()">
 
   <label>Name:
     <input formControlName="name">
@@ -7,7 +7,16 @@
   <label>LastName:
     <input formControlName="lastName">
   </label><br>
-
+  <label>Email:
+    <input formControlName="email">
+  </label><br>
+  <div formArrayName="alternateEmail" *ngFor="let email of alternateEmail.controls; let i=index">
+    <label>Alternate Email:
+      <input type="text" [formControlName]="i">
+    </label><br>
+  </div>
+  <button (click)="_addAlternateEmail()">Add alternate email:</button>
+  <br>
   <div formGroupName="address">
     <label>Address</label><br>
 

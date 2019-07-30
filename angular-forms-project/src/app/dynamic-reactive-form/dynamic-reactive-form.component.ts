@@ -15,6 +15,7 @@ export class DynamicReactiveFormComponent implements OnInit {
   /*public person = new FormGroup({
     name: new FormControl(),
     lastName: new FormControl(),
+    email: new FormControl(),
     address: new FormGroup({
       city: new FormControl(),
       pincode: new FormControl(),
@@ -26,6 +27,8 @@ export class DynamicReactiveFormComponent implements OnInit {
   public person = this.fb.group({
     name: [],
     lastName: [],
+    email:[],
+    alternateEmail: this.fb.array([]),
     address: this.fb.group({
       city: [],
       pincode: [],
@@ -36,9 +39,17 @@ export class DynamicReactiveFormComponent implements OnInit {
   ngOnInit() {
 
   }
+  public get alternateEmail() {
+    return this.person.get('alternateEmail') as FormArray;
+  }
 
-  public submitPersonForm() {
+  public _addAlternateEmail() {
+    this.alternateEmail.push(this.fb.control(''));
+  }
+  public _submitPersonForm() {
     console.log(this.person.value);
   }
+
+
 
 }
