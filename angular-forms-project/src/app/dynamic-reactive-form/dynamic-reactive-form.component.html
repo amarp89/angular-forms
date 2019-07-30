@@ -1,1 +1,28 @@
-<p>dynamic-reactive-form works!</p>
+<form [formGroup]="person" (submit)="submitPersonForm()">
+
+  <label>Name:
+    <input formControlName="name">
+  </label><br>
+  <label>LastName:
+    <input formControlName="lastName">
+  </label><br>
+
+  <div formGroupName="address">
+    <label>Address</label><br>
+
+    <label>City:
+      <input formControlName="city">
+    </label><br>
+    <label>Pincode:
+      <input formControlName="pincode">
+    </label><br>
+
+    <label>State:
+      <input formControlName="state">
+    </label><br>
+    <br>
+  </div>
+
+  <button>Submit</button>
+
+</form>
